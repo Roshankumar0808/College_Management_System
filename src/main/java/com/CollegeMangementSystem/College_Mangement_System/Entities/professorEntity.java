@@ -30,5 +30,10 @@ public class professorEntity {
     @JsonIgnore
     private Set<subjectEntity>subjectEntities;
 
+    @ManyToMany
+    @JoinTable(name = "Professor_Table" ,joinColumns = @JoinColumn(name="professor_id"),inverseJoinColumns = @JoinColumn(name="student_id"))
+    @JsonIgnore
+    private Set<studentEntity>studentEntities;
+
     }
 

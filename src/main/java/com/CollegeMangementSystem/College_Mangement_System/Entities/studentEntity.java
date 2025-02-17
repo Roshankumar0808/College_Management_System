@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,6 +24,9 @@ public class studentEntity {
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private detailsEntity details;
+
+    @ManyToMany(mappedBy = "studentEntities")
+    private Set<professorEntity> professorStudent;
 
 //    @Override
 //    public boolean equals(Object o) {
