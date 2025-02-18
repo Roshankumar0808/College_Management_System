@@ -13,7 +13,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Table(name = "Details_Table")
-@Data
+
 public class detailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,15 @@ public class detailsEntity {
     @JsonIgnore
     private studentEntity student;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof detailsEntity that)) return false;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getFees(), that.getFees()) && Objects.equals(getStudent(), that.getStudent());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFees(), getStudent());
+    }
 }

@@ -27,9 +27,22 @@ public class subjectEntity {
     @JsonIgnore
     private professorEntity professor;
 
-    @ManyToMany(mappedBy = "subjectEntities")
-    private Set<professorEntity> professorEntitySet;
 
 
+    @ManyToMany
+    @JoinTable(name = "Subject_Student" ,joinColumns = @JoinColumn(name="subject_id"),inverseJoinColumns = @JoinColumn(name="student_id"))
+    @JsonIgnore
+    private Set<studentEntity>studentSubject;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof subjectEntity that)) return false;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getTitle(), that.getTitle()) && Objects.equals(getProfessor(), that.getProfessor()) && Objects.equals(getStudentSubject(), that.getStudentSubject());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getProfessor(), getStudentSubject());
+    }
 }
