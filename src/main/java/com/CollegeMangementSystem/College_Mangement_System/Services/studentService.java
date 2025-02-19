@@ -40,6 +40,7 @@ public class studentService {
             subjecttemp.getStudentSubject().add(studenttemp);
             subjectRepo.save(subjecttemp);
             studenttemp.getSubjectstudent().add(subjecttemp);
+        //    studentRepo.save(studenttemp);
             return studenttemp;
         })).orElse(null);
 

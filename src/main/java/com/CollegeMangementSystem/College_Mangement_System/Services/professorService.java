@@ -46,6 +46,7 @@ public class professorService {
             subjectexmpl.setProfessor(prof);
             subjectRepo.save(subjectexmpl);
             prof.getSubjectEntityset().add(subjectexmpl);
+
             return prof;
       })).orElse(null);
   }
@@ -56,8 +57,8 @@ public class professorService {
         return professor.flatMap(prof->student.map(studentexmpl->{
             studentexmpl.getProfessorStudent().add(prof);
             studentRepo.save(studentexmpl);
-
-          prof.getStudentEntities().add(studentexmpl);
+              prof.getStudentEntities().add(studentexmpl);
+               //professorRepo.save(prof);
             return prof;
         })).orElse(null);
     }

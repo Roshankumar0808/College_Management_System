@@ -34,7 +34,7 @@ public class studentEntity {
     private Set<subjectEntity>subjectstudent;
 
     @ManyToMany(mappedBy = "studentEntities")
-    private Set<professorEntity> professorStudent = new HashSet<>();
+    private Set<professorEntity> professorStudent ;
 
     @Override
     public boolean equals(Object o) {

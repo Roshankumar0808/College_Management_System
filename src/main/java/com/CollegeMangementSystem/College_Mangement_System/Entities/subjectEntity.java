@@ -24,14 +24,14 @@ public class subjectEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="professor_id",referencedColumnName = "id")
-    @JsonIgnore
+
     private professorEntity professor;
 
 
 
     @ManyToMany
     @JoinTable(name = "Subject_Student" ,joinColumns = @JoinColumn(name="subject_id"),inverseJoinColumns = @JoinColumn(name="student_id"))
-    @JsonIgnore
+
     private Set<studentEntity>studentSubject;
 
     @Override
