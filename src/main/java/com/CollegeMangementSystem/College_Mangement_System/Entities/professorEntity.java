@@ -24,6 +24,7 @@ public class professorEntity {
     private String title;
 
     @OneToMany(mappedBy = "professor")
+
     private Set<subjectEntity> subjectEntityset;
 //
 //    @ManyToMany
@@ -36,7 +37,7 @@ public class professorEntity {
         joinColumns = @JoinColumn(name = "professor_id"),
         inverseJoinColumns = @JoinColumn(name = "student_id")
 )
-@JsonIgnore
+
 private Set<studentEntity> studentEntities ;
 
 
@@ -44,12 +45,12 @@ private Set<studentEntity> studentEntities ;
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof professorEntity that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getTitle(), that.getTitle()) && Objects.equals(getSubjectEntityset(), that.getSubjectEntityset()) && Objects.equals(getStudentEntities(), that.getStudentEntities());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getTitle(), that.getTitle()) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getSubjectEntityset(), getStudentEntities());
+        return Objects.hash(getId(), getTitle());
     }
 }
 

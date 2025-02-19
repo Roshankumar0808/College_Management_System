@@ -31,20 +31,22 @@ public class studentEntity {
 //    private Set<professorEntity> professorStudent;
 
     @ManyToMany(mappedBy = "studentSubject")
+    @JsonIgnore
     private Set<subjectEntity>subjectstudent;
 
     @ManyToMany(mappedBy = "studentEntities")
+    @JsonIgnore
     private Set<professorEntity> professorStudent ;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof studentEntity that)) return false;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getDetails(), that.getDetails()) && Objects.equals(getProfessorStudent(), that.getProfessorStudent()) && Objects.equals(getSubjectstudent(), that.getSubjectstudent());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getDetails(), getProfessorStudent(), getSubjectstudent());
+        return Objects.hash(getId(), getName());
     }
 }

@@ -58,9 +58,10 @@ public class professorService {
             studentexmpl.getProfessorStudent().add(prof);
             studentRepo.save(studentexmpl);
               prof.getStudentEntities().add(studentexmpl);
-               //professorRepo.save(prof);
+               professorRepo.save(prof);
             return prof;
-        })).orElse(null);
+        })).orElse(null
+        );
     }
 
 
